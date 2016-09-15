@@ -5,6 +5,11 @@
  */
 package team;
 
+/**
+ *
+ * @author Estudiante
+ */
+
 import java.util.ArrayList;
 
 
@@ -17,21 +22,21 @@ public class Team {
     String name;
     Player player; 
     ArrayList<Player> barcelona ;
-    int maxSize;
-    int i;
-    int j;
-    int totalGoals;
+    int maxSize=16;
+    int i=0;
+    int totalGoals=0;
     
     public Team (String name){
         this.name = name;
         this.barcelona= new ArrayList<Player>();
     }
+    
     public String getName() {
-        return name;
+        return this.name;
     }
      
     public void setName (String n){
-        name = n;
+        this.name = n;
     }
     
     public String getPlayerName(){
@@ -53,38 +58,42 @@ public class Team {
     }
     
     public int size(){
-        i=0;
-        for (Player barcelonas : barcelona) {
-            i++;
-        }
-        System.out.println("i" + i);
-        return i;
+        return this.i;
     }
     
     public void addPlayer (Player player){
-        if ( i <= maxSize){
+        if ( this.i < maxSize){
             this.barcelona.add(player);
+            this.i++;
+            this.totalGoals = this.totalGoals + player.getGoals();
         }
     }
     
     public int goals(){
-        for (Player barcelonas : barcelona) {
-            totalGoals= player.getGoals() + totalGoals;
-        }
-        return totalGoals;
+        return this.totalGoals;
     }
     
     public static void main(String[] args) {
         Team barcelona = new Team("FC Barcelona");
+        System.out.println("Team: " + barcelona.getName());
+        barcelona.setMaxSize(5);
 
         Player brian = new Player("Brian");
+        System.out.println("Player: " + brian);
+
         Player pekka = new Player("Pekka", 39);
+        System.out.println("Player: " + pekka);
+        
         barcelona.addPlayer(brian);
         barcelona.addPlayer(pekka);
-        barcelona.addPlayer(new Player("Mikael", 1)); // works similarly as the above
+        barcelona.addPlayer(new Player("Mikael", 1)); 
+        
+        barcelona.printPlayers();
 
-        System.out.println("Total goals: " + barcelona.goals());
+        System.out.println("Number of players: " + barcelona.size());
+        
+        System.out.println( "Total goals: " + barcelona.goals());
+        
     }
  
 }
-    

@@ -5,26 +5,22 @@
  */
 package team;
 
-
 /**
  *
- * @author Carmen_Lucia3
+ * @author Estudiante
  */
 public class Player {
-
-    static void printPlayers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     String name;
     int goals;
    
     
     public String getName(){
-        return name;
+        return this.name;
     }
     
     public int getGoals(){
-        return goals;
+        return this.goals;
     }
     
        
@@ -38,7 +34,7 @@ public class Player {
     }
      
     public String toString(){
-        return name + ", goals " + goals;
+        return this.name + ", goals " + this.goals;
 
     }    
 }
